@@ -9,7 +9,7 @@ import ClientRoutes from './ClientRoutes'
 function Blog({ posts }) {
     console.log(posts)
   return (
-    <div className=" overflow-y bg-zinc-900 p-2 shadow-4xl max-w-7xl mx-auto  ">
+    <div className=" overflow-y bg-zinc-500 p-2 shadow-2xl max-w-7xl mx-auto  ">
         {posts.map((post) => (
             <ClientRoutes key= {post._id} route={`/post/${post.slug.current}`}>
                 <div  className="shadow-xl group flex  flex-col items-center  text-center text-white cursor-pointer justify-center  " >
@@ -47,7 +47,7 @@ function Blog({ posts }) {
                         <div>
                             <p>{post.description}</p> 
                         </div>
-                        <div className='border p-1 rounded-full mt-2 bg-transparent'>
+                        <div>
                             <p>Read more...</p>
                         </div>
                     </div>

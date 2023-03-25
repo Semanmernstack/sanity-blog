@@ -7,13 +7,14 @@ import ClientRoutes from './ClientRoutes'
 
 
 function Blog({ posts }) {
+    console.log(posts)
   return (
-    <div className=" overflow-y  ">
+    <div className=" overflow-y bg-zinc-500 p-2 shadow-2xl max-w-7xl mx-auto  ">
         {posts.map((post) => (
-            
-                <div  className="shadow-xl group flex  flex-col items-center text-center cursor-pointer   bg-red-400 justify-center  " >
+            <ClientRoutes key= {post._id} route={`/post/${post.slug.current}`}>
+                <div  className="shadow-xl group flex  flex-col items-center  text-center text-white cursor-pointer justify-center  " >
                     <div className="group-hover:scale-105 transition-transform hover:animate-pulse opacity-1     p-7 my-3  duration-250 ease-out">
-                        <div className="relative w-[500px] p-4 mt-4  h-[420px] object-cover items-center justify-center  mb-5 ">
+                        <div className="relative  w-[350px] p-4 mt-4  h-[350px] lg:w-[500px] lg:h-[500px] object-cover items-center justify-center  mb-5 ">
                         <Image
                             className="object-cover "
                             src={urlFor(post.mainImage).url()}
@@ -30,12 +31,13 @@ function Blog({ posts }) {
                             </div>
                         ))}
                         </div>
-                        <div>
+                        <div className='p-5'>
                             <div>{post.title}</div>
                             <p>{new Date (post._createdAt).toLocaleDateString
-                                    ("en-NG", {
+                                    ("en-US", {
                                 
-                                            day: "numeric",   month: "long",
+                                        day: "numeric",
+                                        month: "long",
                                         year: "numeric",
                                     } )   
                                 }
@@ -43,7 +45,7 @@ function Blog({ posts }) {
                             </p>
                         </div>
                         <div>
-                            <p>{post.description}</p>
+                            <p>{post.description}</p> 
                         </div>
                         <div>
                             <p>Read more...</p>
@@ -51,6 +53,7 @@ function Blog({ posts }) {
                     </div>
                 
                 </div>
+            </ClientRoutes>    
             
         ))}
     </div>

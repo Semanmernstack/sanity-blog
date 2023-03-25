@@ -47,7 +47,7 @@ function Blog({ posts }) {
                         <div>
                             <p>{post.description}</p> 
                         </div>
-                        <div className='border p-1 rounded-full mt-2 bg-transparent'>
+                        <div className='border p-1 rounded-full bg-transparent'>
                             <p>Read more...</p>
                         </div>
                     </div>
